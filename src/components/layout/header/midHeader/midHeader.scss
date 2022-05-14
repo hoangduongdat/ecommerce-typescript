@@ -1,0 +1,106 @@
+@use './../../../../sass/' as *;
+
+
+.midHeader {
+    width: 100%;
+    height: var(--mid-header-size);
+    &-container {
+        @include flex(center,space-between);
+        width: 100%;
+        height: 100%;
+        padding: 0 8px;
+    }
+
+    &-logo {
+        font-size: 30px;
+        font-weight: 600;
+        position: relative;
+        @include mobile {
+            font-size: 20px;
+        }
+
+        &::after {
+            height: 2.5px;
+            bottom: 0;
+            left: 0;
+            transition: width .3s ease;
+        }
+        &::before {
+            height: 2px;
+            top: 0;
+            right: 0;
+            transition: width .3s ease;
+        }
+        &::before , &::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            background-color: var(--red);
+            @include mobile {
+                width: 50%;
+                height: 1px;
+            }
+        }
+
+        &:hover::after {
+            width: 50%;
+        }
+        &:hover::before {
+            width: 50%;
+        }
+    }
+
+    &-search {
+        width: 450px;
+        @include flex(center,center);
+        position: relative;
+        @include tablet {
+            width: 300px;
+        }
+        @include mobile {
+            display: none;
+        }
+        
+        &>input {
+            width: 100%;
+            outline: none;
+            padding: 6px 10px;
+            border-radius: 99px;
+            border: 1px solid #ccc;
+            background-color: var(--second-bg-color);
+          
+        }
+        &> i {
+            position: absolute;
+            right: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--grey);
+        }
+    }
+
+    &-userMenu {
+        @include flex(center,center);
+        &> li {
+            padding: 0 6px;
+            font-size: 26px;
+            transition: transform .3s ease;
+            color : var(--grey);
+            cursor: pointer;
+            @include mobile {
+                font-size: 18px;
+            }
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+}
+
+// .midHeader-toggle__menu {
+//     display: none;
+//     @include mobile { 
+//         display: block;
+//     }
+// }

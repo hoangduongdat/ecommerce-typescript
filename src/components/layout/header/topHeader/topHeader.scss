@@ -1,0 +1,45 @@
+@use './../../../../sass/' as *;
+
+.top-header {
+   @include flex(center,space-between);
+   height: var(--top-header-size);
+   background-color: var(--second-bg-color);
+   box-shadow: 0 0 3px rgba(0,0,0,0.1);
+    &__flex{
+        @include flex(center,space-between);
+        @include mobile {
+            @include flex(center,center);
+        }
+
+    }
+    &__devided {
+        @include flex(center,center);
+        &> li{
+            font-size: 14px;
+            color: var(--grey);
+            padding: 0 10px;
+            &>span {
+                margin-right: 2px;
+            }
+            
+        }
+        &> li~li {
+            border-left: 1px solid var(--grey); 
+        }
+
+    }
+    
+}
+
+.devided-dropdown{
+    position: relative;
+}
+
+@include mobile {
+    .top-header{
+        @include flex(center,center);
+    }
+    .top-header__devided-left{
+        display: none;
+    }
+}
